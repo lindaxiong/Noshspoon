@@ -14,11 +14,12 @@ function post($array){
 				if($rows == 0){
 					$hash = md5($array[3]);
 					echo $hash;
-					$query = "INSERT INTO Users VALUES ('$array[1]', '$array[2]', '$hash')";
+					$query = "INSERT INTO Users VALUES ('$array[1]', '$array[2]', '$hash', 'user')";
 					$connection->query($query);	
-					header('Location:modal.php'); // register success
+					header('Location:login.html'); // register success
 				}else{
-					header('Location:modal.php'); // put "user already exists" on the page
+					echo '<h> Sorry, your username already exists! Please use a different one.'
+					header('Location:login.html'); // put "user already exists" on the page
 				}
 				break;
 			}

@@ -1,13 +1,7 @@
 <?php
 session_start();
 
-$SERVER = 'stardock.cs.virginia.edu';
-$USERNAME = 'CS4750hc3gf';
-$PASSWORD = '';
-$DATABASE = 'CS4750hc3gf';
-/* Replace later with:
 include_once("./library.php");
-*/
 
 //Connect to database
 $db = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
@@ -47,11 +41,11 @@ if ($success) {
 	$_SESSION['name'] = $name;
 	$_SESSION['username'] = $user;
 	echo "Login Success" . " |||||| $name";
-	header("Location: "); //Either redirect to success page or make this page be success
+	header("Location: login.html"); //Either redirect to success page or make this page be success
 }
 else {
 	echo "Login Fail";
-	//header("Location: "); //Redirect to fail page
+	header("Location: login.html"); //Redirect to fail page
 }
 
 /*
