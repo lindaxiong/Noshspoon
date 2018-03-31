@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-Replace later with:
 include_once("./library.php");
 
 //Connect to database
@@ -49,7 +48,7 @@ if ($success) {
 }
 else {
 	echo "Login Fail";
-	//header("Location: login.html"); //Redirect to fail page
+    header("Location: login.html"); //Redirect to fail page
 }
 
 /*
