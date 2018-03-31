@@ -14,6 +14,7 @@ endif;
 $user = $_POST['username'];
 $pass = $_POST['password'];
 $name = "unset - ERROR";
+$type = "unset - ERROR";
 
 //Form the input to compare if login success
 $input = $user . " " . $pass;
@@ -33,19 +34,21 @@ foreach($result as $row) {
 	$loginSet = $row['username'] . " " . $row['password'];
 	if(strcmp($input, $loginSet) == 0) {
 		$success = true;
-		$name = $row["name"];
+		$name = $row['name'];
+		$type = $row['type'];
 	}
 }
 
 if ($success) {
 	$_SESSION['name'] = $name;
 	$_SESSION['username'] = $user;
+	$_SESSION['type'] = $type;
 	echo "Login Success" . " |||||| $name";
 	header("Location: login.html"); //Either redirect to success page or make this page be success
 }
 else {
 	echo "Login Fail";
-	header("Location: login.html"); //Redirect to fail page
+    header("Location: login.html"); //Redirect to fail page
 }
 
 /*
