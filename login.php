@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-$SERVER = 'stardock.cs.virginia.edu';
-$USERNAME = 'CS4750hc3gf';
-$PASSWORD = '';
-$DATABASE = 'CS4750hc3gf';
-/* Replace later with:
+// $SERVER = 'stardock.cs.virginia.edu';
+// $USERNAME = 'CS4750hc3gf';
+// $PASSWORD = '';
+// $DATABASE = 'CS4750hc3gf';
+// /* Replace later with:
 include_once("./library.php");
-*/
+// */
 
 //Connect to database
 $db = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
