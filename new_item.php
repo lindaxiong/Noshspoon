@@ -8,6 +8,7 @@
 	<div class="container">
 		<div id="alert-indicator">
 		</div>
+		<?php if(isset($_SESSION['username']) && $_SESSION['usertype'] == 'admin'){ ?>
 		<form id="newItem">
 			<fieldset class="form-group">
 				<label for="itemName">Item name</label>
@@ -35,6 +36,14 @@
 			</fieldset>
 			<p><a href="#" onclick="submitForm()" class="btn btn-primary" role="button">Submit</a></p>
 		</form>
+		<?php }
+		elseif(isset($_SESSION['username'])){ ?>
+			<p class="lead">We're sorry, only administrators of Noshspoon may add new items.<br>
+				<a href="search.php">Browse through items</a> we're currently offering and we'll let you know when we update with new items!</p>
+		<?php } 
+		else{ ?>
+			<p class="lead"> Please register or login to be able to access our website and its functionalities! </p>
+		<?php } ?>
 	</div>
 </body>
 </html>

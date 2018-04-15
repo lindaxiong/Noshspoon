@@ -16,10 +16,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     } elseif ($result->num_rows) {
         $row = $result->fetch_array(MYSQLI_NUM);
         $result->close();
-        // $token = md5($password); // tested with md5 hash but did not work. later on, should use sha256 instead of md5 anyways
-        if ($password == $row[2]) {  // change this back to $token after get that work
+        $token = hash('sha256', $password);
+        if ($token == $row[2]) { 
             session_start();
             $_SESSION['username'] = $username;
+            $_SESSION['usertype'] = $row[3]; //grab whether admin or not
             $_SESSION['token'] = $token;
             header('Location:index.php'); // Right password, go to dashbroad
         } else {

@@ -16,7 +16,7 @@ function post($array)
             $exists = $connection->query($select);
             $rows = $exists->num_rows;
             if ($rows == 0) {
-                $hash = md5($array[3]);
+                $hash = hash('sha256', $array[3]);
                 echo $hash;
                 $query = "INSERT INTO Users VALUES ('$array[1]', '$array[2]', '$hash')";
                 $connection->query($query);
