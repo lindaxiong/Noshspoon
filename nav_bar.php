@@ -21,7 +21,9 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="new_item.php">Post Item for Sale</a></li>
+				<?php if(isset($_SESSION['usertype']) && strcmp($_SESSION['usertype'], 'admin') == 0) { ?>
+					<li><a href="new_item.php">Post Item for Sale</a></li>
+				<?php } ?>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cart<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="cart.php">View Cart</a></li>

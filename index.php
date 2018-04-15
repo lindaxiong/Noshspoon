@@ -10,8 +10,13 @@
 			<div class="jumbotron text-center" >
 				<h1> Welcome to Noshspoon! <h1>
 				<p>Browse recipes & have ingredients and snacks shipped to your door!</p>
-				<p class="lead">Register now for <span class="text-success">FREE</span>!</p>
-				<a href = "" class = "btn btn-info">Learn More</a>
+				<?php if(!isset($_SESSION['username'])) { ?>
+					<p class="lead">Register now for <span class="text-success">FREE</span>!</p>
+					<a href = "" class = "btn btn-info">Learn More</a>
+				<?php } ?>
+				<?php else{ ?>
+					<p clas="lead">Browse the items we have available!</p>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
