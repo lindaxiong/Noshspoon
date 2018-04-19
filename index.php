@@ -13,8 +13,8 @@
 				<?php if(!isset($_SESSION['username'])) { ?>
 					<p class="lead">Register now for <span class="text-success">FREE</span>!</p>
 					<a href = "" class = "btn btn-info">Learn More</a>
-				<?php } ?>
-				<?php else{ ?>
+				<?php } 
+				else{ ?>
 					<p clas="lead">Browse the items we have available!</p>
 				<?php } ?>
 			</div>
