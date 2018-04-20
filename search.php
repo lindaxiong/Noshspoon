@@ -27,7 +27,9 @@
 			die($connection->error);
 		} elseif ($result->num_rows) {
 			echo '<div class="container">';
+
 			while ($row = $result->fetch_assoc()) {
+				if($row['available']) {
 				printf('
 				<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
@@ -35,10 +37,26 @@
 				<div class="caption">
 				<h3>%s</h3>
 				<p>%s</p>
-				<p><a href="#" onclick="addToCart(%d)" class="btn btn-primary" role="button">Add to Cart</a>	&nbsp; <a href="review.php?item_id=%d" class="btn btn-primary" role="button">Reviews</a> &nbsp;  $%.2lf</p>
+				<p><a href="#" onclick="addToCart(%d)" class="btn btn-primary" role="button">Add to Cart</a>	&nbsp; <a href="review.php?item_id=%d" class="btn btn-primary" role="button">Reviews</a> &nbsp;  $%.2lf </p>
+
+
 				</div>
 				</div>
 				</div>', $row['picture'], $row['item_name'], $row['description'], $row['item_id'], $row['item_id'], $row['price']);
+			}
+			else {
+				printf('
+				<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				<img src="%s" alt="...">
+				<div class="caption">
+				<h3>%s</h3>
+				<p>%s</p>
+				<p><a href="#" class="btn btn-danger" >SOLD OUT</a>	&nbsp; <a href="review.php?item_id=%d" class="btn btn-primary" role="button">Reviews</a> &nbsp;  $%.2lf </p>
+				</div>
+				</div>
+				</div>', $row['picture'], $row['item_name'], $row['description'], $row['item_id'], $row['item_id'], $row['price']);
+			}
 			}
 			echo '</div>';
 		} else {
