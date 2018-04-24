@@ -19,7 +19,7 @@
 				<input class="form-control" id="itemPrice" name="itemPrice" type="number"></input>
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="itemPicture">Item Picture (Add link to picture)</label>
+				<label for="itemPicture">Item Picture (paste image link including html)</label>
 				<input class="form-control" id="itemPicture" name="itemPicture" type="text"></input>
 			</fieldset>
 			<fieldset class="form-group">
