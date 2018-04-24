@@ -52,7 +52,7 @@
 				printf('
 				<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
-				<img src="%s" alt="...">
+				<img style="height:300px;object-fit:cover;" src="%s" alt="...">
 				<div class="caption">
 				<h3>%s</h3>
 				<p>%s</p>
@@ -67,7 +67,7 @@
 					printf('
 					<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
-					<img src="%s" alt="...">
+					<img style="height:300px;object-fit:cover;" src="%s" alt="...">
 					<div class="caption">
 					<h3>%s</h3>
 					<p>%s</p>
@@ -81,7 +81,7 @@
 			foreach($recipes as $rec){
 				printf('<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
-				<img src="%s" alt="...">
+				<img style="height:300px;object-fit:cover;" src="%s" alt="...">
 				<div class="caption">
 				<h3>%s</h3>
 				<p>%s</p>
@@ -104,7 +104,7 @@
 				while ($row = $result->fetch_assoc()) {
 					printf('<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
-					<img src="%s" alt="...">
+					<img style="height:300px;object-fit:cover;" src="%s" alt="...">
 					<div class="caption">
 					<h3>%s</h3>
 					<p>%s</p>
@@ -123,8 +123,8 @@
 	}
 	mysqli_close($connection);
 	?>
-	?>
 
 
 </body>
 </html>
+
