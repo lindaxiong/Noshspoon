@@ -25,7 +25,7 @@
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-th-large"></i> Item<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="new_item.php"><i class="glyphicon glyphicon-plus-sign"></i> Add New Item</a></li>
-							<li><a href="#"><i class="glyphicon glyphicon-remove-sign"></i> Delete Item</a></li>
+							<li><a href="drop_item.php"><i class="glyphicon glyphicon-remove-sign"></i> Delete Item</a></li>
 						</ul>
 					</li>
 				<?php } 
