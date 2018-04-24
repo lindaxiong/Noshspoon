@@ -42,7 +42,9 @@
 				}
 				elseif($subresult->num_rows){
 					while($ingred = $subresult->fetch_assoc()){
-						array_push($recipes, $ingred);
+						if(!in_array($ingred, $recipes)){
+							array_push($recipes, $ingred);
+						}
 					}
 				}
 

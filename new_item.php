@@ -11,27 +11,27 @@
 		<?php if(isset($_SESSION['username']) && $_SESSION['usertype'] == 'admin'){ ?>
 		<form id="newItem">
 			<fieldset class="form-group">
-				<label for="itemName">Item name</label>
+				<label for="itemName">Item Name</label>
 				<input class="form-control" id="itemName" name="itemName" type="text"></input>
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="itemPrice">Item price</label>
+				<label for="itemPrice">Item Price</label>
 				<input class="form-control" id="itemPrice" name="itemPrice" type="number"></input>
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="itemPicture">Item picture</label>
+				<label for="itemPicture">Item Picture (Add link to picture)</label>
 				<input class="form-control" id="itemPicture" name="itemPicture" type="text"></input>
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="itemQuantity">Item quantity</label>
+				<label for="itemQuantity">Item Quantity</label>
 				<input class="form-control" id="itemQuantity" name="itemQuantity" type="number"></input>
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="itemType">Item type</label>
+				<label for="itemType">Item Type</label>
 				<input class="form-control" id="itemType" name="itemType" type="text"></input>
 			</fieldset>
 			<fieldset class="form-group">
-				<label for="itemDescription">Item description</label>
+				<label for="itemDescription">Item Description</label>
 				<textarea class="form-control" id="itemDescription" name="itemDescription" rows="4"></textarea>
 			</fieldset>
 			<p><a href="#" onclick="submitForm()" class="btn btn-primary" role="button">Submit</a></p>
