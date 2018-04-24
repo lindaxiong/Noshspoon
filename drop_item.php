@@ -27,7 +27,9 @@
 				<col width="5%">
 				<thead><tr><th>Item Name</th></tr></thead>
 				<tbody>
-				<?php while($row = $result->fetch_assoc()){ ?>
+				<?php $items = array();
+				while($row = $result->fetch_assoc()){ 
+					$items[$row['item_id']] = $row['item_name']; ?>
 					<tr>
 						<td><?php echo $row['item_name'] ?></td>
 						<td>
@@ -45,7 +47,7 @@
 							<h4 class="modal-title">Delete item?</h4>
 						</div>
 						<div class="modal-body">
-							<p class="lead">Are you sure you want to delete the item?</p>
+							<p class="lead" id="desc">Are you sure you want to delete ITEM?</p>
 							<p>Deleting the item will also delete any carts, reviews, orders, and recipe ingredients associated with the item.</p>
 						</div>
 						<div class="modal-footer">
@@ -61,6 +63,9 @@
 				$(document).on("click", ".open-deleteItem", function () {
 					var itemId = $(this).data('id');
 					$(".modal-footer #item").val( itemId );
+					var str = document.getElementById("desc");
+					var itemArr = <?php echo json_encode($items); ?>;
+					str.innerHTML = "Are you sure you want to delete " + itemArr[itemId] + "?";
 				});
 			</script>
 		<?php }
