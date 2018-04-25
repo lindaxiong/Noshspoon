@@ -18,7 +18,7 @@
 		if ($connection->error) {
 			die($connection->connect_error);
 		}
-		$query = "SELECT * FROM Cart JOIN Items ON Cart.in_cart = Items.item_id where username = '$queryname'";
+		$query = "SELECT * FROM Cart JOIN Items ON (Cart.in_cart = Items.item_id) where username = '$queryname'";
 		$result = $connection->query($query);
 		if (!$result) {
 			die($connection->error);
@@ -69,7 +69,7 @@
 			</select>
 			<a href="" data-toggle="modal" data-target="#address-overlay" class="btn btn-primary">Add Address</a>
 			</div>
-			<a href="#" onclick="placeOrder()" class="btn btn-success" role="button">Place Order</a>
+			<a href="" onclick="placeOrder()" class="btn btn-success" role="button">Place Order</a>
 			</form>
 			</div>
 			</div>
