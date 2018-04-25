@@ -30,8 +30,8 @@ if (isset($_SESSION['username'])) {
 	$result3 = $connection->query($query1);
 	while ($row3 = $result3->fetch_assoc()) {
 		$item_id = $row3['in_cart'];
-		$query5 = "INSERT INTO Order_details (order_id, item_id, quantity) VALUES ($order_id, $item_id, 1)";
-		if ($connection->query($query5)) echo "inserted into order details";
+		$query5 = "INSERT INTO Order_details (order_id, item_id, quantity, username) VALUES ('$order_id', '$item_id', 1, '$queryname')";
+		$connection->query($query5);
 	}
 
 

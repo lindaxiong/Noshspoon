@@ -15,21 +15,34 @@ if (isset($_SESSION['username'])) {
 	$description = $connection->real_escape_string($_POST['itemDescription']);
 	$username = $_SESSION['username'];
 
-	$query = "INSERT INTO Items (item_name, price, picture, quantity, type, description) VALUES ('$name', '$price', '$picture', '$quantity', '$type', '$description')";
-	if (mysqli_query($connection, $query)) {
-		echo 'success';
-	}
-	//$query2 = "SELECT item_id FROM Items ORDER BY item_id DESC LIMIT 1";
-	//$result = $connection->query($query2);
-	//$row = $result->fetch_assoc(); # use this to fetch row
+	$select = "SELECT * FROM Items WHERE item_name = '$name'";
+	$exists = $connection->query($select);
+    $rows = $exists->num_rows;
+    if ($rows == 0) {
+    	$query = "INSERT INTO Items (item_name, price, picture, quantity, type, description) VALUES ('$name', '$price', '$picture', '$quantity', '$type', '$description', 1)";
+		if (mysqli_query($connection, $query)) {
+			echo 'success';
+		}
+		else {
+			echo 'failed';
+		}
+    } else {
+    	$query = "UPDATE Items SET quantity = (quantity + '$quantity') WHERE item_name='$name'";
+		if (mysqli_query($connection, $query)) {
+			echo 'success';
+		} else {
+			echo 'failed';
+		}
+    	
+    }
 
-	//$item_id = (int)$row['item_id'];
-	//$query3 = "INSERT INTO Stock (username, in_stock) VALUES ('$username', '$item_id')";
-	 else {
-		echo 'failed';
-	}
+	
 	mysqli_close($connection);
 } else {
 	echo 'not_logged_in';
 }
 ?>
+
+
+
+         

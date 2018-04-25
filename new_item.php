@@ -34,7 +34,7 @@
 				<label for="itemDescription">Item Description</label>
 				<textarea class="form-control" id="itemDescription" name="itemDescription" rows="4"></textarea>
 			</fieldset>
-			<p><a href="#" onclick="submitForm()" class="btn btn-primary" role="button">Submit</a></p>
+			<p><a href="" onclick="submitForm()" class="btn btn-primary" role="button">Submit</a></p>
 		</form>
 		<?php }
 		elseif(isset($_SESSION['username'])){ ?>
