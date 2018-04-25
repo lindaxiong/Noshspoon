@@ -19,7 +19,7 @@ if (isset($_SESSION['username'])) {
 	$exists = $connection->query($select);
     $rows = $exists->num_rows;
     if ($rows == 0) {
-    	$query = "INSERT INTO Items (item_name, price, picture, quantity, type, description) VALUES ('$name', '$price', '$picture', '$quantity', '$type', '$description', 1)";
+    	$query = "INSERT INTO Items (item_name, price, picture, quantity, type, description) VALUES ('$name', '$price', '$picture', '$quantity', '$type', '$description')";
 		if (mysqli_query($connection, $query)) {
 			echo 'success';
 		}
