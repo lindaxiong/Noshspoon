@@ -16,7 +16,7 @@
 		}
 
 		if(isset($_SESSION['username']) && $_SESSION['usertype'] == 'admin'){ 
-		$query = "SELECT * FROM Items";
+		$query = "SELECT * FROM v";
 		$result = $connection->query($query);
 		if (!$result) {
 			die($connection->error);

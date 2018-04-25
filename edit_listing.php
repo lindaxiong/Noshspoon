@@ -14,7 +14,7 @@
 			}
 			$username = $_SESSION['username'];
 			$item_id = $_GET['item_id'];
-			$query = "SELECT * FROM Items WHERE item_id = '$item_id'";
+			$query = "SELECT * FROM v WHERE item_id = '$item_id'";
 			$result = $connection->query($query);
 			if (!$result) {
 					die($connection->error);
