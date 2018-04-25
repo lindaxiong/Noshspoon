@@ -56,6 +56,7 @@
 			<option value="-1">------</option>';
 
 			$address_query = "SELECT * FROM Addresses WHERE username = '$queryname'";
+			$address_query2 = "SELECT address_id FROM Addresses WHERE username='$queryname'";
 			$address_result = $connection->query($address_query);
 			if(!$address_result) {
 				die($connection->error);

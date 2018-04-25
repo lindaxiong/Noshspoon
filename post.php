@@ -18,7 +18,7 @@ function post($array)
             if ($rows == 0) {
                 $hash = hash('sha256', $array[3]);
                 echo $hash;
-                $query = "INSERT INTO Users VALUES ('$array[1]', '$array[2]', '$hash')";
+                $query = "INSERT INTO Users VALUES ('$array[1]', '$array[2]', '$hash', 'user')";
                 $connection->query($query);
                 header('Location:index.php'); //register successfully
             } else {
