@@ -26,3 +26,4 @@
 <script type="text/javascript" src="assets/js/add_review.js"></script>
 <script type="text/javascript" src="assets/js/check_out.js"></script>
 <script type="text/javascript" src="assets/js/edit_listing.js"></script>
+<script type="text/javascript" src="assets/js/add_recipe.js"></script>
