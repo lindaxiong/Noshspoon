@@ -79,17 +79,31 @@
 			}
 			$prev = 0;
 			foreach($recipes as $rec){
-				if($rec['r_id'] != $prev){
-				printf('<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-				<img style="height:300px;object-fit:cover;" src="%s" alt="...">
-				<div class="caption">
-				<h3>%s</h3>
-				<p>%s</p>
+				if($rec['r_id'] != $prev){ ?>
+					<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+					<img style="height:300px;object-fit:cover;" src="<?php echo $rec['food_pic'];?>" alt="...">
+					<div class="caption">
+					<h3><?php echo $rec['food_name']; ?></h3> <?php 
 
-				</div>
-				</div>
-				</div>', $rec['food_pic'], $rec['food_name'], $rec['description']);
+					$rid = $rec['r_id'];
+					$subquery = "SELECT * FROM Ingredients NATURAL JOIN Items WHERE r_id=$rec[$rid]";
+					$subresult = $connection->query($subquery);
+					if(!$subresult){
+						die($connection->error);
+					}
+					elseif($subresult->num_rows){ ?>
+						<h4>Ingredients Used</h4><p>
+						<?php while($ingred = $subresult->fetch_assoc()){ ?>
+							<b><?php echo $ingred['item_name']; ?></b><br>
+						<?php } ?>
+						</p>
+					<?php } ?>
+					<p><?php echo $rec['description']; ?></p>
+
+					</div>
+					</div>
+					</div> <?php
 				}
 				$prev = $rec['r_id'];
 			}
@@ -112,17 +126,31 @@
 				echo '<div class="container">';
 				$prev = 0;
 				foreach($recipes as $rec){
-					if($rec['r_id'] != $prev){
-					printf('<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-					<img style="height:300px;object-fit:cover;" src="%s" alt="...">
-					<div class="caption">
-					<h3>%s</h3>
-					<p>%s</p>
+					if($rec['r_id'] != $prev){ ?>
+						<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+						<img style="height:300px;object-fit:cover;" src="<?php echo $rec['food_pic'];?>" alt="...">
+						<div class="caption">
+						<h3><?php echo $rec['food_name']; ?></h3> <?php 
 
-					</div>
-					</div>
-					</div>', $rec['food_pic'], $rec['food_name'], $rec['description']);
+						$rid = $rec['r_id'];
+						$subquery = "SELECT * FROM Ingredients NATURAL JOIN Items WHERE r_id=$rec[$rid]";
+						$subresult = $connection->query($subquery);
+						if(!$subresult){
+							die($connection->error);
+						}
+						elseif($subresult->num_rows){ ?>
+							<h4>Ingredients Used</h4><p>
+							<?php while($ingred = $subresult->fetch_assoc()){ ?>
+								<b><?php echo $ingred['item_name']; ?></b><br>
+							<?php } ?>
+							</p>
+						<?php } ?>
+						<p><?php echo $rec['description']; ?></p>
+
+						</div>
+						</div>
+						</div> <?php
 					}
 					$prev = $rec['r_id'];
 				}

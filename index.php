@@ -21,7 +21,7 @@
 				<p>Browse recipes & have ingredients and snacks shipped to your door!</p>
 				<?php if(!isset($_SESSION['username'])) { ?>
 					<p class="lead">Register now for <span class="text-success">FREE</span>!</p></font>
-					<a href = "" class = "btn btn-info">Learn More</a>
+					<a href = "" class = "btn btn-info" data-toggle="modal" data-target="#login-overlay">Learn More</a>
 				<?php } 
 				else{ ?>
 					<p clas="lead">Browse the items we have available!</p>
