@@ -8,7 +8,7 @@ if (isset($_SESSION['username'])) {
 		die($connection->connect_error);
 	}
 	$username = $_SESSION['username'];
-	$query2 = "SELECT order_id, item_id, quantity FROM Order_details GROUP BY order_id IN (SELECT distinct order_id FROM Transactions WHERE buyer_id = '$username')"; // maybe still need Transactions table to keep track of order history?
+	$query2 = "SELECT order_id, item_name, Order_details.quantity FROM `Order_details` JOIN Items ON Order_details.item_id=Items.item_id WHERE username='jp7hk' ORDER BY order_id";
 	$result2 = $connection->query($query2);
 	$orders = array();
 	if (!$result2)
