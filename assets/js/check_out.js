@@ -20,14 +20,14 @@ function applyCoupon() {
 
 function placeOrder() {
 	var input_fields = $('#newOrder').serializeArray();
-	var ok = true;
-	for (var i = 0; i < input_fields.length; i++) {
-		if (!input_fields[i].value) {
-			ok = false;
-			break;
-		}
+	var addr = document.getElementById('shipAddress');
+	//Checks to see if address selected, as coupon should be optional
+	if (addr.selectedIndex == 0) {
+		var div = document.createElement('div');
+		div.innerHTML = '<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>All fields must be filled!</div>';
+		document.getElementById('alert-indicator').appendChild(div);
 	}
-	if (ok) {
+	else {
 		$.post('place_order.php', $('#newOrder').serialize(), function(data) {
 			console.log(data);
 			if (data == "success") {
@@ -45,9 +45,5 @@ function placeOrder() {
 				document.getElementById('alert-indicator').appendChild(div);
 			}
 		});
-	} else {
-		var div = document.createElement('div');
-		div.innerHTML = '<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>All fields must be filled!</div>';
-		document.getElementById('alert-indicator').appendChild(div);
 	}
 }

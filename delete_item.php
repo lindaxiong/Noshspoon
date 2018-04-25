@@ -22,12 +22,6 @@ if (isset($_SESSION['username'])) {
         if (!$result) {
             die($connection->error);
         }
-        //Delete previous orders that purchased item
-        $query = "DELETE FROM Order_details WHERE item_id='$id'";
-        $result = $connection->query($query);
-        if (!$result) {
-            die($connection->error);
-        }
         //Delete any carts that held any of the item
         $query = "DELETE FROM Cart WHERE item_id='$id'";
         $result = $connection->query($query);

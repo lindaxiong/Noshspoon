@@ -15,10 +15,7 @@ if (isset($_SESSION['username'])) {
 	$row1 = $result->fetch_assoc(); # use this to fetch row
 	$total = (int)$row1['total'];
 
-	$query5 = "SELECT address_id FROM Addresses WHERE username = '$queryname'";
-	$result5 = $connection->query($query5);
-	$row5 = $result5->fetch_assoc(); # use this to fetch row
-	$address_id = (int)$row5['address_id'];
+	$address_id = $_POST['shipAddress'];
 	$query3 = "INSERT INTO Orders(order_time, address_id, order_total) VALUES (CURRENT_TIMESTAMP, '$address_id', '$total')";
 	$connection->query($query3);
 

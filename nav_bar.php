@@ -21,11 +21,20 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<?php if(isset($_SESSION['usertype']) && strcmp($_SESSION['usertype'], 'admin') == 0) { ?>
+				<?php if(isset($_SESSION['username'])) { ?>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-list"></i> Recipe<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="new_recipe.php"><i class="glyphicon glyphicon-plus-sign"></i> Add New Recipe</a></li>
+							<?php if(strcmp($_SESSION['usertype'], 'admin') == 0){ ?>
+							<li><a href="drop_recipe.php"><i class="glyphicon glyphicon-remove-sign"></i> Delete Recipe</a></li>
+							<?php } ?>
+						</ul>
+					</li>
+				<?php } 
+				if(isset($_SESSION['usertype']) && strcmp($_SESSION['usertype'], 'admin') == 0) { ?>
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-th-large"></i> Item<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="new_item.php"><i class="glyphicon glyphicon-plus-sign"></i> Add New Item</a></li>
-							<li><a href="new_recipe.php"><i class="glyphicon glyphicon-plus-sign"></i> Add New Recipe</a></li>
 							<li><a href="drop_item.php"><i class="glyphicon glyphicon-remove-sign"></i> Delete Item</a></li>
 						</ul>
 					</li>

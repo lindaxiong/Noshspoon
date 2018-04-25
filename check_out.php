@@ -52,7 +52,7 @@
 			</div>
 			<div class="form-inline">
 			<label>Ship to: </label>
-			<select class="form-control">
+			<select class="form-control" id="shipAddress" name="shipAddress">
 			<option value="-1">------</option>';
 
 			$address_query = "SELECT * FROM Addresses WHERE username = '$queryname'";
