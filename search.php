@@ -87,7 +87,7 @@
 					<h3><?php echo $rec['food_name']; ?></h3> <?php 
 
 					$rid = $rec['r_id'];
-					$subquery = "SELECT * FROM Ingredients NATURAL JOIN Items WHERE r_id=$rec[$rid]";
+					$subquery = "SELECT * FROM Ingredients NATURAL JOIN Items WHERE r_id=$rid";
 					$subresult = $connection->query($subquery);
 					if(!$subresult){
 						die($connection->error);
@@ -134,7 +134,7 @@
 						<h3><?php echo $rec['food_name']; ?></h3> <?php 
 
 						$rid = $rec['r_id'];
-						$subquery = "SELECT * FROM Ingredients NATURAL JOIN Items WHERE r_id=$rec[$rid]";
+						$subquery = "SELECT * FROM Ingredients NATURAL JOIN Items WHERE r_id=$rid";
 						$subresult = $connection->query($subquery);
 						if(!$subresult){
 							die($connection->error);
