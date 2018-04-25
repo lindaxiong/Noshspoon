@@ -36,11 +36,11 @@ function post($array)
 
 
                 $mail->setFrom('uva.noshspoon@gmail.com', 'Noshspoon');
-                $mail->addAddress($array[1], $array[3]);     // Add a recipient        
+                $mail->addAddress($array[1], $array[2]);     // Add a recipient        
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'Welcome to Noshspoon!';
-                $mail->Body    = 'Congratulations, ' . $array[3] . '! You have successfully registered on Noshspoon!';
-                $mail->AltBody = 'Congratulations, ' . $array[3] . '! You have successfully registered on Noshspoon! ';
+                $mail->Body    = 'Congratulations, ' . $array[2] . '! You have successfully registered on Noshspoon!';
+                $mail->AltBody = 'Congratulations, ' . $array[2] . '! You have successfully registered on Noshspoon! ';
                 $mail->send();
 
                 
